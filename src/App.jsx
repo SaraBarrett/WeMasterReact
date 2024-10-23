@@ -2,54 +2,15 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
-const goals = ['O meu objectivo é aprender React e construir Apps incríveis!', 'O meu objectivo é aprender SQL e construir Apps incríveis!', 'O meu objectivo é aprender JS e construir Apps incríveis!'];
-
-const userData = {
-  firstName: 'Sara',
-  lastName: 'Monteiro',
-  title: 'Web Developer'
-};
-
+import Header from './components/Header'
+import MainGoal from './components/MainGoal'
+import Card from './components/Card'
+import users from './data/users'
+import goals from './data/goals'
 
 function getRandomInt(max){
   return Math.floor(Math.random() * (max+1));
 }
-
-function MainGoal(){
-  let myText =goals[getRandomInt(2)] ;
-
-  return(
-    <div>
-      <p>{myText}</p>
-    </div>
-  );
-}
-
-function Header(){
-  return (
-    <header>
-      <img src={reactLogo} alt="" />
-      <h4>Aprendendo React!</h4>
-    </header>
-  );
-}
-
-function Card(data){
-  return(
-    <div className="card">
-    <p>{userData.firstName} e o apelido é {userData.lastName}</p>
-    <p>A profissão é {userData.title}</p>
-    {/* <button onClick={() => setCount((count) => count + 1)}>
-      count is {count}
-    </button>
-    <p>
-      Edit <code>src/App.jsx</code> and save to test HMR
-    </p> */}
-  </div>
-  )
-};
-
 
 function App() {
   const [count, setCount] = useState(0)
@@ -58,8 +19,18 @@ function App() {
     <>
       <div>
         <Header/>
-        <MainGoal/>
         
+        <MainGoal 
+          myText={goals.objectives.first}
+        />
+        
+        <MainGoal myText={goals.objectives.second}/>
+        
+        <MainGoal myText={goals.objectives.third}/>
+
+        <MainGoal myText='não odiar css'/>
+
+
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -68,11 +39,25 @@ function App() {
         </a>
       </div>
       <h1>Front End Developer: React</h1>
-
-      <Card />
-      <Card/>
-      <Card/>
-
+      <Card 
+      name='Justino' 
+      surname= 'Oliveira'
+      job='segurança'
+      />
+      <br />
+      <Card
+      name={users.managerData.firstName}
+      surname={users.managerData.lastName}
+      job={users.managerData.title}
+      />
+            <br />
+      <Card
+       name={users.userData.firstName}
+       surname={users.userData.lastName}
+       job={users.userData.title}
+       />
+       <br/>
+      
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
