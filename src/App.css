@@ -36,6 +36,7 @@
 .card {
   padding: 2em;
   background-color: aquamarine;
+  color: black;
 }
 
 .read-the-docs {
