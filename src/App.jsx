@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header'
 import MainGoal from './components/MainGoal'
+import CourseGoal from './components/CourseGoal'
 import Card from './components/Card'
 import users from './data/users'
 import goals from './data/goals'
@@ -38,7 +39,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Front End Developer: React</h1>
+      <CourseGoal title='JS'/>
       <Card 
       name='Justino' 
       surname= 'Oliveira'
