@@ -9,6 +9,7 @@ import Card from './components/Card'
 import users from './data/users'
 import goals from './data/goals'
 import TabButton from './components/TabButton'
+import LoginUser from './components/LoginUser'
 
 function getRandomInt(max){
   return Math.floor(Math.random() * (max+1));
@@ -16,6 +17,11 @@ function getRandomInt(max){
 
 function App() {
   const [count, setCount] = useState(0)
+
+  function handleSelected(selectedButton){
+    //o codigo que eu quiser
+    console.log(selectedButton)
+  }
 
   return (
     <>
@@ -60,8 +66,14 @@ function App() {
        />
        <br/>
       
-     <TabButton>Olá</TabButton>
-     <TabButton>FE</TabButton>
+     <TabButton onSelectBtn={()=> handleSelected('js')}>Matéria JS</TabButton>
+     <TabButton onSelectBtn={()=> handleSelected('sql')}>Matéria SQL</TabButton>
+     <TabButton onSelectBtn={()=> handleSelected('react')}>Matéria React</TabButton>
+     <div>
+      Conteúdo Dinâmico
+     </div>
+    <LoginUser/>
+
     </>
   )
 }
