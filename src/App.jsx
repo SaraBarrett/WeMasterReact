@@ -8,6 +8,7 @@ import CourseGoal from './components/CourseGoal'
 import Card from './components/Card'
 import users from './data/users'
 import goals from './data/goals'
+import TabButton from './components/TabButton'
 
 function getRandomInt(max){
   return Math.floor(Math.random() * (max+1));
@@ -59,9 +60,8 @@ function App() {
        />
        <br/>
       
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     <TabButton>Olá</TabButton>
+     <TabButton>FE</TabButton>
     </>
   )
 }
