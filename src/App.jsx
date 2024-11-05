@@ -17,7 +17,8 @@ function getRandomInt(max){
 }
 
 function App() {
-  const[content, setContent] = useState('Conteúdo dinâmico: pf seleccione um botão');
+  let login = false;
+  const[content, setContent] = useState();
 
   function handleSelected(selectedButton){
     //o codigo que eu quiser
@@ -72,10 +73,11 @@ function App() {
      <TabButton onSelectBtn={()=> handleSelected('js')}>Matéria JS</TabButton>
      <TabButton onSelectBtn={()=> handleSelected('sql')}>Matéria SQL</TabButton>
      <TabButton onSelectBtn={()=> handleSelected('react')}>Matéria React</TabButton>
-     <div>
+    <div>
       {content}
-     </div>
+    </div>
     <LoginUser/>
+    
     <Discount/>
     </>
   )
