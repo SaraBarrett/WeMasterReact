@@ -1,4 +1,15 @@
 export default function LoginUser(){
+    function addUserName(myLoginName){
+      const user = {
+        name: myLoginName,
+        job:'',
+        age:''
+      };
+      console.log(user);
+
+    }
+
+
     return(  
     <div id="app">
         <h1>User Login</h1>
@@ -9,7 +20,9 @@ export default function LoginUser(){
         </p>
   
         <p id="actions">
-          <button>Create User</button>
+          <button onClick={function(){
+            addUserName('Sara')
+            }}>Create User</button>
         </p>
       </div>
       );

@@ -1,5 +1,7 @@
 export const user = {
     name: '',
+    job:'',
+    age:''
   };
   
   function App() {
