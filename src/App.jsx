@@ -13,12 +13,25 @@ import LoginUser from './components/LoginUser'
 import Discount from './components/Discount'
 import { EXAMPLES } from './data/coreConcepts'
 
+let myName = 'Sara';
+// let loginName = null;
+
+// if(myName){
+//   loginName = myName;
+// }else{
+//   loginName = 'este user não tem nome';
+// }
+
+//operador ternário
+let loginName = myName ? myName : 'este user não tem nome';
+console.log(loginName)
+
 function getRandomInt(max){
   return Math.floor(Math.random() * (max+1));
 }
 function App() {
   let login = false;
-  const[content, setContent] = useState('components');
+  const[content, setContent] = useState();
 
   function handleSelected(selectedButton){
     //o codigo que eu quiser
@@ -47,7 +60,7 @@ function App() {
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={reactLogo} className="logo react" alt="React .logo" />
         </a>
       </div>
       <CourseGoal title='JS'/>
@@ -64,7 +77,7 @@ function App() {
       />
             <br />
       <Card
-       name={users.userData.firstName}
+       name={users.userDatafirstName}
        surname={users.userData.lastName}
        job={users.userData.title}
        />
@@ -74,13 +87,22 @@ function App() {
      <TabButton onSelectBtn={()=> handleSelected('props')}>Matéria Props</TabButton>
      <TabButton onSelectBtn={()=> handleSelected('state')}>Matéria State</TabButton>
     {/* div de conteúdo dinâmico */}
+    {/*!content ? (<p>Pf Clica num Tema</p>) :
     <div id='tab-content'>
       <h3>{EXAMPLES[content].title}</h3>
       <p>{EXAMPLES[content].description}</p>
       <pre>
         <code>{EXAMPLES[content].code}</code>
       </pre>
-    </div>
+    </div>*/}
+
+    {content && (<div id='tab-content'>
+      <h3>{EXAMPLES[content].title}</h3>
+      <p>{EXAMPLES[content].description}</p>
+      <pre>
+        <code>{EXAMPLES[content].code}</code>
+      </pre>
+    </div>)}
     {/* .div de conteúdo dinâmico */}
     <LoginUser/>
     
