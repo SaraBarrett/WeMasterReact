@@ -11,14 +11,14 @@ import goals from './data/goals'
 import TabButton from './components/TabButton'
 import LoginUser from './components/LoginUser'
 import Discount from './components/Discount'
+import { EXAMPLES } from './data/coreConcepts'
 
 function getRandomInt(max){
   return Math.floor(Math.random() * (max+1));
 }
-
 function App() {
   let login = false;
-  const[content, setContent] = useState();
+  const[content, setContent] = useState('components');
 
   function handleSelected(selectedButton){
     //o codigo que eu quiser
@@ -70,12 +70,18 @@ function App() {
        />
        <br/>
       
-     <TabButton onSelectBtn={()=> handleSelected('js')}>Matéria JS</TabButton>
-     <TabButton onSelectBtn={()=> handleSelected('sql')}>Matéria SQL</TabButton>
-     <TabButton onSelectBtn={()=> handleSelected('react')}>Matéria React</TabButton>
-    <div>
-      {content}
+     <TabButton onSelectBtn={()=> handleSelected('jsx')}>Matéria JSX</TabButton>
+     <TabButton onSelectBtn={()=> handleSelected('props')}>Matéria Props</TabButton>
+     <TabButton onSelectBtn={()=> handleSelected('state')}>Matéria State</TabButton>
+    {/* div de conteúdo dinâmico */}
+    <div id='tab-content'>
+      <h3>{EXAMPLES[content].title}</h3>
+      <p>{EXAMPLES[content].description}</p>
+      <pre>
+        <code>{EXAMPLES[content].code}</code>
+      </pre>
     </div>
+    {/* .div de conteúdo dinâmico */}
     <LoginUser/>
     
     <Discount/>
