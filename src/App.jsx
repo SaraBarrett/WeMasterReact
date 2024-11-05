@@ -84,9 +84,9 @@ function App() {
        />
        <br/>
       
-     <TabButton onSelectBtn={()=> handleSelected('jsx')}>Matéria JSX</TabButton>
-     <TabButton onSelectBtn={()=> handleSelected('props')}>Matéria Props</TabButton>
-     <TabButton onSelectBtn={()=> handleSelected('state')}>Matéria State</TabButton>
+     <TabButton isActive={content == 'jsx'} onSelectBtn={()=> handleSelected('jsx')}>Matéria JSX</TabButton>
+     <TabButton isActive={content == 'props'} onSelectBtn={()=> handleSelected('props')}>Matéria Props</TabButton>
+     <TabButton  isActive={content == 'state'} onSelectBtn={()=> handleSelected('state')}>Matéria State</TabButton>
     {/* div de conteúdo dinâmico */}
     {/*!content ? (<p>Pf Clica num Tema</p>) :
     <div id='tab-content'>
