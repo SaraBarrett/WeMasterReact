@@ -10,17 +10,20 @@ import users from './data/users'
 import goals from './data/goals'
 import TabButton from './components/TabButton'
 import LoginUser from './components/LoginUser'
+import Discount from './components/Discount'
 
 function getRandomInt(max){
   return Math.floor(Math.random() * (max+1));
 }
 
 function App() {
-  const [count, setCount] = useState(0)
+  const[content, setContent] = useState('Conteúdo dinâmico: pf seleccione um botão');
 
   function handleSelected(selectedButton){
     //o codigo que eu quiser
-    console.log(selectedButton)
+
+    setContent(selectedButton);
+
   }
 
   return (
@@ -70,10 +73,10 @@ function App() {
      <TabButton onSelectBtn={()=> handleSelected('sql')}>Matéria SQL</TabButton>
      <TabButton onSelectBtn={()=> handleSelected('react')}>Matéria React</TabButton>
      <div>
-      Conteúdo Dinâmico
+      {content}
      </div>
     <LoginUser/>
-
+    <Discount/>
     </>
   )
 }

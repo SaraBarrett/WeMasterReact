@@ -1,3 +1,5 @@
+import LoginBtn from "./LoginBtn";
+
 export default function LoginUser(){
     function addUserName(myLoginName){
       const user = {
@@ -5,6 +7,7 @@ export default function LoginUser(){
         job:'',
         age:''
       };
+
       console.log(user);
 
     }
@@ -20,9 +23,7 @@ export default function LoginUser(){
         </p>
   
         <p id="actions">
-          <button onClick={function(){
-            addUserName('Sara')
-            }}>Create User</button>
+          <LoginBtn eventHandler={()=> addUserName('Sara') }>Add User</LoginBtn>
         </p>
       </div>
       );
