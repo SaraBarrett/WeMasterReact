@@ -12,6 +12,7 @@ import TabButton from './components/TabButton'
 import LoginUser from './components/LoginUser'
 import Discount from './components/Discount'
 import { EXAMPLES } from './data/coreConcepts'
+import Delete from './components/Delete'
 
 let myName = 'Sara';
 // let loginName = null;
@@ -107,6 +108,10 @@ function App() {
     <LoginUser/>
     
     <Discount/>
+    
+    <hr />
+
+<Delete/>
     </>
   )
 }

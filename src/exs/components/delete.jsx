@@ -1,5 +1,6 @@
 export default function App() {
-    return (
+  
+  return (
       <div>
         <div data-testid="alert" id="alert">
           <h2>Are you sure?</h2>
