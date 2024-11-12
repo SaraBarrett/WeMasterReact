@@ -1,3 +1,9 @@
+import { Link } from "react-router-dom";
+
 export default function HomePage(){
-    return <h1>As Minhas Funcionalidades</h1>;
+    return( 
+    <div>
+        <h1>Estou em Casa</h1>
+
+    </div>)
 }
