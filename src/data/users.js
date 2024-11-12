@@ -9,6 +9,31 @@ const users = {
     lastName: "Costa",
     title: "Web Gestor",
   },
+  managerData: {
+    firstName: "António",
+    lastName: "Costa",
+    title: "Web Gestor",
+  },
+  managerData: {
+    firstName: "António",
+    lastName: "Costa",
+    title: "Web Gestor",
+  },
+  managerData: {
+    firstName: "António",
+    lastName: "Costa",
+    title: "Web Gestor",
+  },
+  managerData: {
+    firstName: "António",
+    lastName: "Costa",
+    title: "Web Gestor",
+  },
+  managerData: {
+    firstName: "António",
+    lastName: "Costa",
+    title: "Web Gestor",
+  },
 };
 
 export default users;

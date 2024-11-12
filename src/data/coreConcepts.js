@@ -13,6 +13,7 @@ export const CORE_CONCEPTS = [
     description:
       "Return (potentially dynamic) HTML(ish) code to define the actual markup that will be rendered.",
   },
+  
   {
     image: reactLogo,
     title: "Props",

@@ -5,13 +5,14 @@ import './App.css'
 import Header from './components/Header'
 import MainGoal from './components/MainGoal'
 import CourseGoal from './components/CourseGoal'
+import ComponentsCard from './components/ComponentsCard'
 import Card from './components/Card'
 import users from './data/users'
 import goals from './data/goals'
 import TabButton from './components/TabButton'
 import LoginUser from './components/LoginUser'
 import Discount from './components/Discount'
-import { EXAMPLES } from './data/coreConcepts'
+import { CORE_CONCEPTS, EXAMPLES } from './data/coreConcepts'
 import Delete from './components/Delete'
 
 let myName = 'Sara';
@@ -45,18 +46,17 @@ function App() {
     <>
       <div>
         <Header/>
-        
-        <MainGoal 
-          myText={goals.objectives.first}
-        />
-        
-        <MainGoal myText={goals.objectives.second}/>
-        
-        <MainGoal myText={goals.objectives.third}/>
+        <div className='container'>
+          {CORE_CONCEPTS.map((item) =>
+          <ComponentsCard
+          key = {item.title}
+          title = {item.title}
+          description = {item.description}
+          />
+        )}
 
-        <MainGoal myText='não odiar css'/>
-
-
+        </div>
+      
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -71,6 +71,7 @@ function App() {
       job='segurança'
       />
       <br />
+  
       <Card
       name={users.managerData.firstName}
       surname={users.managerData.lastName}
