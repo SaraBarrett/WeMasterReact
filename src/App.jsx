@@ -17,7 +17,7 @@ import HomePage from './pages/HomePage';
 import IndexShoppingList from './pages/IndexShoppingList'
 import IndexContacts from './pages/IndexContacts'
 import RootLayout from './components/RootLayout'
-
+import ErrorPage from './pages/ErrorPage'
 
 let myName = 'Sara';
 // let loginName = null;
@@ -39,6 +39,7 @@ function getRandomInt(max){
 const ROUTER = createBrowserRouter([
   {
     path: '/', element:<RootLayout/>,
+    errorElement: <ErrorPage/>,
     children: [
       {path: '/', element:<HomePage/>},
       {path: '/shopping-list', element:<IndexShoppingList/>},
