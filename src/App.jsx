@@ -3,17 +3,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header'
-import MainGoal from './components/MainGoal'
 import CourseGoal from './components/CourseGoal'
 import ComponentsCard from './components/ComponentsCard'
 import Card from './components/Card'
 import users from './data/users'
-import goals from './data/goals'
 import TabButton from './components/TabButton'
 import LoginUser from './components/LoginUser'
 import Discount from './components/Discount'
 import { CORE_CONCEPTS, EXAMPLES } from './data/coreConcepts'
 import Delete from './components/Delete'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import HomePage from './pages/HomePage';
+import IndexShoppingList from './pages/IndexShoppingList'
+
 
 let myName = 'Sara';
 // let loginName = null;
@@ -31,7 +33,17 @@ console.log(loginName)
 function getRandomInt(max){
   return Math.floor(Math.random() * (max+1));
 }
+
+const ROUTER = createBrowserRouter([
+  {path: '/', element:<HomePage/>},
+  {path: '/shopping-list', element:<IndexShoppingList/>},
+
+])
+
 function App() {
+
+  return <RouterProvider router={ROUTER}/>;
+
   let login = false;
   const[content, setContent] = useState();
 
@@ -113,6 +125,8 @@ function App() {
     <hr />
 
 <Delete/>
+
+
     </>
   )
 }
