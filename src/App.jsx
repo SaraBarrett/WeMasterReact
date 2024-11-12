@@ -16,6 +16,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './pages/HomePage';
 import IndexShoppingList from './pages/IndexShoppingList'
 import IndexContacts from './pages/IndexContacts'
+import RootLayout from './components/RootLayout'
 
 
 let myName = 'Sara';
@@ -36,9 +37,14 @@ function getRandomInt(max){
 }
 
 const ROUTER = createBrowserRouter([
-  {path: '/', element:<HomePage/>},
-  {path: '/shopping-list', element:<IndexShoppingList/>},
-  {path: '/contacts', element:<IndexContacts/>},
+  {
+    path: '/', element:<RootLayout/>,
+    children: [
+      {path: '/', element:<HomePage/>},
+      {path: '/shopping-list', element:<IndexShoppingList/>},
+      {path: '/contacts', element:<IndexContacts/>},
+    ]
+  }
 ])
 
 function App() {
