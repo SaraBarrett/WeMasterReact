@@ -18,6 +18,7 @@ import IndexShoppingList from './pages/IndexShoppingList'
 import IndexContacts from './pages/IndexContacts'
 import RootLayout from './components/RootLayout'
 import ErrorPage from './pages/ErrorPage'
+import AvailablePlaces from './pages/AvailablePlaces'
 
 let myName = 'Sara';
 // let loginName = null;
@@ -44,6 +45,7 @@ const ROUTER = createBrowserRouter([
       {path: '/', element:<HomePage/>},
       {path: '/shopping-list', element:<IndexShoppingList/>},
       {path: '/contacts', element:<IndexContacts/>},
+      {path: '/available-places', element: <AvailablePlaces/>},
     ]
   }
 ])

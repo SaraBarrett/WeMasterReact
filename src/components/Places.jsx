@@ -1,3 +1,5 @@
+import '../components/Places.css'
+
 export default function Places({ title, places, fallbackText, onSelectPlace }) {
 
   return (
