@@ -27,7 +27,8 @@ export default function AvailablePlaces({ onSelectPlace }) {
     function handleStopRemovePlace() {
       setModalIsOpen(false);
     }
-  
+
+    
     function handleSelectPlace(selectedPlace) {
       setUserPlaces((prevPickedPlaces) => {
         if (!prevPickedPlaces) {
