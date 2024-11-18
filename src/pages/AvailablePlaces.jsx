@@ -1,10 +1,14 @@
-import { useEffect, useState, useCallback  } from 'react';
-import Places from '../components/Places'
+import { useEffect, useState, useCallback, useRef } from 'react';
+import Places from '../components/places/Places'
+import Modal from '../components/places/Modal'
+import DeleteConfirmation from '../components/places/DeleteConfirmation'
 import globeImg from '../assets/globe.png';
 
 export default function AvailablePlaces({ onSelectPlace }) {
   const[availablePlaces, setAvailablePlaces] = useState([]);
-  const [userPlaces, setUserPlaces] = useState([]); 
+  const selectedPlace = useRef(null);
+  const [userPlaces, setUserPlaces] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false); 
   
 
   useEffect(() =>
@@ -51,14 +55,20 @@ export default function AvailablePlaces({ onSelectPlace }) {
   
   return (
     <>
-    <header>
+     <Modal open={modalIsOpen} onClose={handleStopRemovePlace}>
+        <DeleteConfirmation
+          onCancel={handleStopRemovePlace}
+          onConfirm={handleRemovePlace}
+        />
+      </Modal>
+    <div>
       <img src={globeImg} alt="Stylized globe" />
       <h1>PlacePicker</h1>
       <p>
         Create your personal collection of places you would like to visit or
         you have visited.
       </p>
-    </header>
+    </div>
     <main>
       <Places
           title="My Selected Places ..."
