@@ -1,26 +1,18 @@
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import Places from '../components/places/Places'
 import Modal from '../components/places/Modal'
 import DeleteConfirmation from '../components/places/DeleteConfirmation'
 import globeImg from '../assets/globe.png';
+import { getPlacesData, updatePlacesData } from '../https';
 
 export default function AvailablePlaces({ onSelectPlace }) {
-  const[availablePlaces, setAvailablePlaces] = useState([]);
   const selectedPlace = useRef(null);
   const [userPlaces, setUserPlaces] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false); 
   
-
-  useEffect(() =>
-    {
-      fetch('http://localhost:3000/places')
-      .then((response) => { return response.json()})
-      .then((resData) => {  
-       console.log(resData)
-      setAvailablePlaces(resData.places);
-      });
-    },
-    []);
+  //Api request to get all places data
+  const availablePlaces = getPlacesData();
+ 
 
 
     function handleStartRemovePlace(place) {
@@ -43,15 +35,21 @@ export default function AvailablePlaces({ onSelectPlace }) {
         }
         return [selectedPlace, ...prevPickedPlaces];
       });
+      
+      //faz pedido put para o backend
+      updatePlacesData([selectedPlace, ...userPlaces]);
     }
   
     const handleRemovePlace = useCallback(async function handleRemovePlace() {
       setUserPlaces((prevPickedPlaces) =>
         prevPickedPlaces.filter((place) => place.id !== selectedPlace.current.id)
       );
-  
+      updatePlacesData(userPlaces.filter(
+        (place) => place.id != selectedPlace.current.id
+      ));
+
       setModalIsOpen(false);
-    }, []);
+    }, [userPlaces]);
   
   return (
     <>
