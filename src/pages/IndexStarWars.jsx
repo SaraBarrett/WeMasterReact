@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
+import StarWarsComponent from "../components/StarWarsComponent";
 
 
 export default function IndexStartWars(){
     const [people, setPeople] = useState([]);
+    const [films, setFilms] = useState([]);
 
     useEffect(() =>
         {
@@ -14,11 +16,27 @@ export default function IndexStartWars(){
           });
         },
         []);
-        console.log(people)
+
+    useEffect(() =>
+        {
+            fetch('https://swapi.dev/api/films/')
+            .then((response) => { return response.json()})
+            .then((data) => {  
+
+            setFilms(data.results);
+            });
+        },
+        []);
     
     return(
         <div>
-            olá estou no star wars
+            <StarWarsComponent
+            data={people}
+            />
+
+            <StarWarsComponent
+            data={films}
+            />
         </div>
     )
 
