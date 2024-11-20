@@ -20,6 +20,7 @@ import RootLayout from './components/RootLayout'
 import ErrorPage from './pages/ErrorPage'
 import AvailablePlaces from './pages/AvailablePlaces'
 import IndexStartWars from './pages/IndexStarWars'
+import Login from './pages/Auth/Login';
 
 let myName = 'Sara';
 // let loginName = null;
@@ -48,6 +49,7 @@ const ROUTER = createBrowserRouter([
       {path: '/contacts', element:<IndexContacts/>},
       {path: '/available-places', element: <AvailablePlaces/>},
       {path: '/star-wars', element: <IndexStartWars/>},
+      {path: '/login', element: <Login/>},
     ]
   }
 ])

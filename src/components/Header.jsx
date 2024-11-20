@@ -12,7 +12,7 @@ function Header(){
           <h1>As Minhas Funcionalidades</h1>
           <p><Link to="/shopping-list">Lista de Compras</Link></p>
           <p><Link to="/contacts">Contactos</Link></p>
-          <p><Link to="/">Home</Link></p>
+          <p><Link to="/login">Login</Link></p>
         </div>
       </header>
     );
