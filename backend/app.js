@@ -39,6 +39,7 @@ app.put("/user-places", async (req, res) => {
 });
 
 app.post("/signup", async (req, res) => {
+  console.log(req.body);
 
   const fileContent = await fs.readFile("./data/users.json");
   const users = JSON.parse(fileContent);
@@ -46,11 +47,9 @@ app.post("/signup", async (req, res) => {
   const newUser = req.body;
   users.push(newUser);
 
-
   await fs.writeFile("./data/users.json", JSON.stringify(users, null, 2));
-  res.status(200).json({message: "User Inserted!"});
-  
-})
+  res.status(200).json({ message: "User Inserted!" });
+});
 
 //rotas de users
 

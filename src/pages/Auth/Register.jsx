@@ -1,17 +1,42 @@
 import { useState } from 'react';
 import '../../assets/auth.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
   const [passwordsAreNotEqual, setPasswordsAreNotEqual] = useState(false);
+  const navigate = useNavigate();
 
     function handleSubmit(event){
       event.preventDefault();
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData.entries())
+
       if(data.password != data.confirmPassword){
         setPasswordsAreNotEqual(true);
         return;
       }
+
+      const user = {
+        email: data.email,
+        password: data.password,
+        firstName: data['first-name'],
+        lastName: data['last-name'],
+        role: data.role,
+        termsAccepted: data.terms === 'on',
+      }
+
+      const response = fetch("http://localhost:3000/signup",
+        {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(user)
+        }   
+      )
+
+
+      navigate("/", {
+        state: {message: "User successfully registered!"}
+      });
     }
 
 
