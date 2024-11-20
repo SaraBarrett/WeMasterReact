@@ -38,6 +38,22 @@ app.put("/user-places", async (req, res) => {
   res.status(200).json({ message: "User places updated!" });
 });
 
+app.post("/signup", async (req, res) => {
+
+  const fileContent = await fs.readFile("./data/users.json");
+  const users = JSON.parse(fileContent);
+
+  const newUser = req.body;
+  users.push(newUser);
+
+
+  await fs.writeFile("./data/users.json", JSON.stringify(users, null, 2));
+  res.status(200).json({message: "User Inserted!"});
+  
+})
+
+//rotas de users
+
 // 404
 app.use((req, res, next) => {
   if (req.method === "OPTIONS") {

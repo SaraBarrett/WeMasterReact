@@ -21,6 +21,7 @@ import ErrorPage from './pages/ErrorPage'
 import AvailablePlaces from './pages/AvailablePlaces'
 import IndexStartWars from './pages/IndexStarWars'
 import Login from './pages/Auth/Login';
+import Register from './pages/Auth/Register';
 
 let myName = 'Sara';
 // let loginName = null;
@@ -50,6 +51,7 @@ const ROUTER = createBrowserRouter([
       {path: '/available-places', element: <AvailablePlaces/>},
       {path: '/star-wars', element: <IndexStartWars/>},
       {path: '/login', element: <Login/>},
+      {path: '/register', element: <Register/>},
     ]
   }
 ])
