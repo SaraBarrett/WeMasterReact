@@ -6,5 +6,21 @@
     "lastName": "s",
     "role": "founder",
     "termsAccepted": true
+  },
+  {
+    "email": "testestudent@gmail.com",
+    "password": "testestudent@gmail.com",
+    "firstName": "Sara",
+    "lastName": "Monteiro",
+    "role": "student",
+    "termsAccepted": true
+  },
+  {
+    "email": "testeteacher@gmail.com",
+    "password": "testeteacher@gmail.com",
+    "firstName": "Sara",
+    "lastName": "Monteiro",
+    "role": "teacher",
+    "termsAccepted": true
   }
 ]

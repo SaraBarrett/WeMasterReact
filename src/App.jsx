@@ -22,6 +22,8 @@ import AvailablePlaces from './pages/AvailablePlaces'
 import IndexStartWars from './pages/IndexStarWars'
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
+import Logout from './pages/Auth/Logout';
+import ProtectedRoute from './protectedRoute'
 
 let myName = 'Sara';
 // let loginName = null;
@@ -44,14 +46,28 @@ const ROUTER = createBrowserRouter([
   {
     path: '/', element:<RootLayout/>,
     errorElement: <ErrorPage/>,
+    id: 'root',
+    loader: () =>{ 
+      return { login: localStorage.getItem('token') ? true : false }
+    },
     children: [
       {path: '/', element:<HomePage/>},
-      {path: '/shopping-list', element:<IndexShoppingList/>},
+      {path: '/shopping-list', 
+        element: <ProtectedRoute/>,
+        children : [
+          {
+            path: '',
+            element:<IndexShoppingList/>
+          }
+        ]
+      },
+      
       {path: '/contacts', element:<IndexContacts/>},
       {path: '/available-places', element: <AvailablePlaces/>},
       {path: '/star-wars', element: <IndexStartWars/>},
       {path: '/login', element: <Login/>},
       {path: '/register', element: <Register/>},
+      {path: '/logout', element: <Logout/>}
     ]
   }
 ])

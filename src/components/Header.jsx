@@ -1,8 +1,10 @@
 import reactLogo from '../assets/react.svg';
-import { Link } from 'react-router-dom';
+import { Link, useRouteLoaderData } from 'react-router-dom';
 
 
 function Header(){
+    const loader = useRouteLoaderData('root');
+
     return (
       <header>
  
@@ -12,7 +14,14 @@ function Header(){
           <h1>As Minhas Funcionalidades</h1>
           <p><Link to="/shopping-list">Lista de Compras</Link></p>
           <p><Link to="/contacts">Contactos</Link></p>
-          <p><Link to="/login">Login</Link></p>
+          {!loader.login
+           &&
+          <p><Link to="/login">Login</Link></p>}
+          {
+            loader.login &&
+            <p><Link to="/logout">Logout</Link></p>
+          }
+     
         </div>
       </header>
     );

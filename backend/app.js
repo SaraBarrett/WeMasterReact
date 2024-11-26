@@ -42,6 +42,7 @@ app.put("/user-places", async (req, res) => {
 });
 
 //rotas de users
+//rota de registo
 app.post("/signup", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json");
   const users = JSON.parse(fileContent);
@@ -53,14 +54,18 @@ app.post("/signup", async (req, res) => {
   res.status(200).json({ message: "User Inserted!" });
 });
 
+//rota de login (verifica se há user e se sim gera um token)
 app.post("/login", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json");
   const users = JSON.parse(fileContent);
-
+  
   const email = req.body.email;
+  console.log(email);
   const password = req.body.password;
 
+
   const login = users.find((u) => u.email === email && u.password === password);
+
 
   if (!login) {
     return res.status(422).json({
