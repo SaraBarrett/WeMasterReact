@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import './assets/bootstrap/bootstrap.css'
 import Header from './components/Header'
 import CourseGoal from './components/CourseGoal'
 import ComponentsCard from './components/ComponentsCard'
@@ -43,6 +44,7 @@ function getRandomInt(max){
 }
 
 const ROUTER = createBrowserRouter([
+  {path: '/HomePage', element:<HomePage/>},
   {
     path: '/', element:<RootLayout/>,
     errorElement: <ErrorPage/>,
@@ -51,7 +53,7 @@ const ROUTER = createBrowserRouter([
       return { login: localStorage.getItem('token') ? true : false }
     },
     children: [
-      {path: '/', element:<HomePage/>},
+
       {path: '/shopping-list', 
         element: <ProtectedRoute/>,
         children : [
@@ -61,7 +63,6 @@ const ROUTER = createBrowserRouter([
           }
         ]
       },
-      
       {path: '/contacts', element:<IndexContacts/>},
       {path: '/available-places', element: <AvailablePlaces/>},
       {path: '/star-wars', element: <IndexStartWars/>},

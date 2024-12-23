@@ -35,6 +35,12 @@ app.get("/user-places", async (req, res) => {
   res.status(200).json({ places });
 });
 
+app.get("/users", async (req, res) => {
+  const fileContent = await fs.readFile("./data/users.json");
+  const users = JSON.parse(fileContent);
+  res.status(200).json({ users });
+});
+
 app.put("/user-places", async (req, res) => {
   const places = req.body.places;
   await fs.writeFile("./data/user-places.json", JSON.stringify(places));
@@ -58,14 +64,12 @@ app.post("/signup", async (req, res) => {
 app.post("/login", async (req, res) => {
   const fileContent = await fs.readFile("./data/users.json");
   const users = JSON.parse(fileContent);
-  
+
   const email = req.body.email;
   console.log(email);
   const password = req.body.password;
 
-
   const login = users.find((u) => u.email === email && u.password === password);
-
 
   if (!login) {
     return res.status(422).json({
